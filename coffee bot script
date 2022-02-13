@@ -1,0 +1,62 @@
+def coffee_bot():
+  print("Welcome to the cafe!")
+  name = input("Can I get your name please? \n> ")
+  size = get_size()
+  drink_type = get_drink_type()
+  print("Alright, that's a {} {}!".format(size, drink_type))
+  print("Thanks, {}! Your drink will be ready shortly.".format(name))
+
+
+
+def get_size():
+  res = input("What size drink can I get for you? \n[a] Small \n[b] Medium \n [c] Large \n> ")
+  if res == "a":
+    return "Small"
+  elif res == "b":
+    return "Medium"
+  elif res == "c":
+    return "Large"
+  else:
+    print_message()
+    return get_size()
+
+def print_message():
+  print("I'm sorry I did not understand your selection. Please enter the corresponding letter for your response.")
+
+def get_drink_type():
+  res = input("What type of drink would you like? \n[a] Brewed Coffee \n[b] Mocha \n [c] Latte \n> ")
+  if res == "a":
+    return "Brewed Coffee"
+  elif res == "b":
+    return order_mocha()
+  elif res == "c":
+    return order_latte()
+  else:
+    print_message()
+    return get_drink_type()
+
+def order_mocha():
+  res = input("What kind of mocha? \n[a] Milk chocolate \n[b] White chocolate \n> ")
+  if res == "a":
+    return "Milk chocolate mocha"
+  elif res == "b":
+    return "White_chocolate order_mocha"
+  else:
+    print_message()
+    return order_mocha()
+
+def order_latte():
+  res = input("What kind of milk would like? \n[a] 2% milk \n[b] Non-fat milk \n[c] Soy milk \n> ")
+  if res == "a":
+    return "Latte with 2%"
+  elif res == "b":
+    return "Latte with non-fat milk"
+  elif res == "c":
+    return "Latte with soy milk"
+  else:
+    print_message()
+    return order_latte()
+
+  
+
+coffee_bot()
